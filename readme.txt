@@ -1,0 +1,1 @@
+Wow, i dont know how long this will take to finish, but i'm willing to do my best to show to the broadest public possible what assembly and slow clock speeds means. Also, i miss 0x10c
