@@ -3,6 +3,9 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 
+#define MAINWIN_WIDTH 1280
+#define MAINWIN_HEIGHT 800
+
 int main(int argc, char* argv[]) {
 
     SDL_Window *window;
@@ -14,8 +17,8 @@ int main(int argc, char* argv[]) {
         "CodeWarsReloaded",
         SDL_WINDOWPOS_UNDEFINED,
         SDL_WINDOWPOS_UNDEFINED,
-        1280,
-        800,
+        MAINWIN_WIDTH,
+        MAINWIN_HEIGHT,
         0
     );
 
