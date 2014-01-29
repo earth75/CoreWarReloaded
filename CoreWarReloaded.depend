@@ -5,9 +5,15 @@
 	<SDL_image.h>
 	<SDL_ttf.h>
 
-1391023239 source:c:\users\alexis\documents\projets c\corewarreloaded\cwr.c
+1391038446 source:c:\users\alexis\documents\projets c\corewarreloaded\cwr.c
+	"text.h"
+
+1391036244 c:\users\alexis\documents\projets c\corewarreloaded\text.h
 	<stdio.h>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
+
+1391036029 source:c:\users\alexis\documents\projets c\corewarreloaded\text.c
+	"text.h"
 
