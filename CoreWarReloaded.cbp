@@ -7,7 +7,7 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/CodeWarsReloaded" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/CoreWarReloaded" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/CodeWarsReloaded" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/CoreWarReloaded" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -34,6 +34,10 @@
 		<Unit filename="CWR.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="text.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="text.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
