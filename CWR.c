@@ -22,14 +22,17 @@ int main(int argc, char* argv[]) {
 
     SDL_Rect TextLocation;
 
-    char* text = malloc(sizeof(char));
-    strcpy(text, " ");
 
-    initMARS();
+    printf("ok");
+    Instruction Core[CORESIZE+1];
+    printf("ok");
+    initMARS(&Core);
 
     SDL_Init(SDL_INIT_VIDEO);
-    TTF_Init();
 
+    TTF_Init();
+    char* text = malloc(17 * sizeof(char));
+    strcpy(text, "CoreWarsReloaded");
 
     window = SDL_CreateWindow(
         "CoreWarReloaded",
@@ -53,14 +56,14 @@ int main(int argc, char* argv[]) {
     fondTex = SDL_CreateTextureFromSurface(renderer, fondSurface);
     SDL_FreeSurface(fondSurface);
 
-    tech = loadfont("C:/Users/Alexis/Documents/Projets C/CoreWarReloaded/bin/Debug/kongtext.ttf", 50);
+    tech = loadfont("C:/Users/Alexis/Documents/Projets C/CoreWarReloaded/bin/Debug/kongtext.ttf", 20);
 	surftext = drawtext(tech, 255, 255, 255, 70, 0, 0, 0, 0, text, blended);
 	textTexture = SDL_CreateTextureFromSurface(renderer, surftext);
 
 	TextLocation.h = surftext->h;
     TextLocation.w = surftext->w;
-    TextLocation.x = 100;
-    TextLocation.y = 100;
+    TextLocation.x = 20;
+    TextLocation.y = 20;
 
     SDL_FreeSurface(surftext);
 
@@ -72,21 +75,9 @@ int main(int argc, char* argv[]) {
                                 quit = 1;
                                 break;
                 case SDL_TEXTINPUT:
-                                text = (char*) realloc(text, (strlen(text)+strlen(e.text.text)+1)*sizeof(char));
-                                strcat(text, e.text.text);
-
-                                surftext = drawtext(tech, 255, 255, 255, 70, 0, 0, 0, 0, text, blended);
-                                textTexture = SDL_CreateTextureFromSurface(renderer, surftext);
-                                TextLocation.h = surftext->h;
-                                TextLocation.w = surftext->w;
-                                SDL_FreeSurface(surftext);
                                 break;
                 case (SDL_KEYDOWN):
                                 if(e.key.keysym.sym == SDLK_ESCAPE) quit = 1;
-                                if(e.key.keysym.sym == SDLK_UP) TextLocation.y = TextLocation.y - 20;
-                                if(e.key.keysym.sym == SDLK_DOWN) TextLocation.y = TextLocation.y + 20;
-                                if(e.key.keysym.sym == SDLK_RIGHT) TextLocation.x = TextLocation.x + 20;
-                                if(e.key.keysym.sym == SDLK_LEFT) TextLocation.x = TextLocation.x - 20;
                                 break;
                     }
                 }
