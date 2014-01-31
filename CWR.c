@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
     SDL_FreeSurface(fondSurface);
 
     tech = loadfont("C:/Users/Alexis/Documents/Projets C/CoreWarReloaded/bin/Debug/kongtext.ttf", 20);
-	surftext = drawtext(tech, 255, 255, 255, 70, 0, 0, 0, 0, text, blended);
+	surftext = drawtext(tech, 255, 255, 255, 70, 0, 0, 0, 0, text, solid);
 	textTexture = SDL_CreateTextureFromSurface(renderer, surftext);
 
 	TextLocation.h = surftext->h;

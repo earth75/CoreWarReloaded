@@ -17,10 +17,9 @@ void initMARS(Instruction (*Core)[CORESIZE+1]){
         (*Core)[i].B = 0;
         printf("%d!", i);
         fprintf(corefile, "%d %d %d %d %d %d ",(*Core)[i].opcode, (*Core)[i].mod, (*Core)[i].aA, (*Core)[i].A, (*Core)[i].aB, (*Core)[i].B);
-
         printf("%d ", i);
     }
-    printf("okMARS2");
+    printf("okMARS2 ");
     (*Core)[CORESIZE].opcode = END;
     (*Core)[CORESIZE].mod = F;
     (*Core)[CORESIZE].aA = dol;
@@ -29,7 +28,7 @@ void initMARS(Instruction (*Core)[CORESIZE+1]){
     (*Core)[CORESIZE].B = 0;
     fprintf(corefile, "%d %d %d %d %d %d\n",(*Core)[CORESIZE].opcode, (*Core)[CORESIZE].mod, (*Core)[CORESIZE].aA, (*Core)[CORESIZE].A, (*Core)[CORESIZE].aB, (*Core)[CORESIZE].B);
     fclose(corefile);
-    printf("ok close corefile");
+    printf("ok close corefile ");
 }
 
 
