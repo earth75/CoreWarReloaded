@@ -5,10 +5,11 @@
 	<SDL_image.h>
 	<SDL_ttf.h>
 
-1391115561 source:c:\users\alexis\documents\projets c\corewarreloaded\cwr.c
+1391132922 source:c:\users\alexis\documents\projets c\corewarreloaded\cwr.c
 	"text.h"
+	"RedCode.h"
 
-1391113433 c:\users\alexis\documents\projets c\corewarreloaded\text.h
+1391115963 c:\users\alexis\documents\projets c\corewarreloaded\text.h
 	<stdio.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -16,6 +17,12 @@
 	<string.h>
 	<stdlib.h>
 
-1391113561 source:c:\users\alexis\documents\projets c\corewarreloaded\text.c
+1391115963 source:c:\users\alexis\documents\projets c\corewarreloaded\text.c
 	"text.h"
+
+1391132844 c:\users\alexis\documents\projets c\corewarreloaded\redcode.h
+	<stdio.h>
+
+1391132844 source:c:\users\alexis\documents\projets c\corewarreloaded\redcode.c
+	"RedCode.h"
 

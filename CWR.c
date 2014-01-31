@@ -1,4 +1,5 @@
 #include "text.h"
+#include "RedCode.h"
 
 #define MAINWIN_WIDTH 1280
 #define MAINWIN_HEIGHT 800
@@ -15,17 +16,16 @@ int main(int argc, char* argv[]) {
 
     char quit = 0;
 
-    TTF_Font* courrier;
     TTF_Font* tech;
     SDL_Surface *surftext = NULL;
     SDL_Texture *textTexture;
 
+    SDL_Rect TextLocation;
 
     char* text = malloc(sizeof(char));
     strcpy(text, " ");
 
-    SDL_Rect TextLocation;
-
+    initMARS();
 
     SDL_Init(SDL_INIT_VIDEO);
     TTF_Init();
@@ -54,7 +54,6 @@ int main(int argc, char* argv[]) {
     SDL_FreeSurface(fondSurface);
 
     tech = loadfont("C:/Users/Alexis/Documents/Projets C/CoreWarReloaded/bin/Debug/kongtext.ttf", 50);
-    courrier = loadfont("C:/windows/fonts/cour.ttf", 50);
 	surftext = drawtext(tech, 255, 255, 255, 70, 0, 0, 0, 0, text, blended);
 	textTexture = SDL_CreateTextureFromSurface(renderer, surftext);
 
