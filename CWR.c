@@ -21,12 +21,10 @@ int main(int argc, char* argv[]) {
     SDL_Texture *textTexture;
 
     SDL_Rect TextLocation;
-
-
     printf("ok");
-    Instruction Core[CORESIZE+1];
+    Instruction Core[CORESIZE];
     printf("ok");
-    initMARS(&Core);
+    initMARS(&Core, CORESIZE);
 
     SDL_Init(SDL_INIT_VIDEO);
 
