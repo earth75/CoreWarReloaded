@@ -1,5 +1,6 @@
 #include "text.h"
 #include "RedCode.h"
+#include "mars.h"
 
 #define MAINWIN_WIDTH 1280
 #define MAINWIN_HEIGHT 800
@@ -23,24 +24,12 @@ int main(int argc, char* argv[]) {
 
     SDL_Rect TextLocation;
 
-
-
     Instruction Core[CORESIZE];
-    Instruction Core2[CORESIZE];
-    initMARS(&Core, CORESIZE);
-    savefile(&Core, CORESIZE, "MARS.cr");
-    loadfile(&Core2, "MARS.cr");
-    savefile(&Core2, CORESIZE, "MARS2.cr");
-
-
-
-
 
     SDL_Init(SDL_INIT_VIDEO);
 
     TTF_Init();
-    char* text = malloc(16 * sizeof(char));
-    strcpy(text, "CoreWarReloaded");
+    char* text = "CoreWarReloaded";
 
     window = SDL_CreateWindow(
         "CoreWarReloaded",

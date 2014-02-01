@@ -5,7 +5,7 @@
 void initMARS(Instruction (*Core)[], int size){ /*creates a blank memory of CORESIZE instructions*/
     int i;
     for (i = 0; i < size; i++){
-        (*Core)[i].opcode = DAT;
+        (*Core)[i].op = DAT;
         (*Core)[i].mod = F;
         (*Core)[i].aA = dol;
         (*Core)[i].A = 0;
@@ -21,7 +21,7 @@ void savefile(Instruction (*doc)[], int len, char* filename){ /*saves an array o
     if (file == NULL) printf ("fopen failed");
     fprintf(file, "%d ", len);
     for (i = 0; i < len; i++){
-            fprintf(file, "%d %d %d %d %d %d ",(*doc)[i].opcode, (*doc)[i].mod, (*doc)[i].aA, (*doc)[i].A, (*doc)[i].aB, (*doc)[i].B);
+        fprintf(file, "%d %d %d %d %d %d ",(*doc)[i].op, (*doc)[i].mod, (*doc)[i].aA, (*doc)[i].A, (*doc)[i].aB, (*doc)[i].B);
     }
     fclose (file);
 }
@@ -34,12 +34,12 @@ void loadfile(Instruction (*doc)[], char* filename){ /*loads an array of instruc
     if (file == NULL) printf ("fopen failed");
     fscanf(file, "%d ", &len);
     for (i = 0; i < len; i++){
-            fscanf(file, "%d", &((*doc)[i].opcode));
-            fscanf(file, "%d", &((*doc)[i].mod));
-            fscanf(file, "%d", &((*doc)[i].aA));
-            fscanf(file, "%d", &((*doc)[i].A));
-            fscanf(file, "%d", &((*doc)[i].aB));
-            fscanf(file, "%d", &((*doc)[i].B));
+        fscanf(file, "%d", &((*doc)[i].op));
+        fscanf(file, "%d", &((*doc)[i].mod));
+        fscanf(file, "%d", &((*doc)[i].aA));
+        fscanf(file, "%d", &((*doc)[i].A));
+        fscanf(file, "%d", &((*doc)[i].aB));
+        fscanf(file, "%d", &((*doc)[i].B));
     }
     printf("copied %d inst.", len);
     fclose (file);
@@ -59,13 +59,13 @@ void samplewarrior(){
     FILE* text;
     printf("creating sample warrior");
     Instruction Core[2];
-    (Core)[0].opcode = ADD;
+    (Core)[0].op = ADD;
     (Core)[0].mod = F;
     (Core)[0].aA = dol;
     (Core)[0].A = 13;
     (Core)[0].aB = dol;
     (Core)[0].B = 15;
-    (Core)[1].opcode = MOV;
+    (Core)[1].op = MOV;
     (Core)[1].mod = I;
     (Core)[1].aA = sharp;
     (Core)[1].A = 6;
@@ -75,27 +75,15 @@ void samplewarrior(){
 }
 
 
-void loadwarrior(){
-    FILE* warrior;
-    char data[6];
-    int size;
-    warrior = fopen("warrior.wr", "w");
-    if(warrior == NULL) printf ("couldnt open warrior");
-    fscanf (warrior, "%s", data);
-    size = atoi(data);
-}
-
-
 
 void injectwarrior(Instruction (*warrior)[], int len, Instruction (*Core)[], int loc){
     int i;
     for(i=0; i<len; i++){
-            (*Core)[loc+i].opcode=(*warrior)[i].opcode;
+            (*Core)[loc+i].op=(*warrior)[i].op;
             (*Core)[loc+i].mod=(*warrior)[i].mod;
             (*Core)[loc+i].aA=(*warrior)[i].aA;
             (*Core)[loc+i].A=(*warrior)[i].A;
             (*Core)[loc+i].aB=(*warrior)[i].aB;
             (*Core)[loc+i].B=(*warrior)[i].B;
     }
-
 }

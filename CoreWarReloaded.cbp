@@ -36,6 +36,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="RedCode.h" />
+		<Unit filename="mars.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="mars.h" />
 		<Unit filename="text.c">
 			<Option compilerVar="CC" />
 		</Unit>
