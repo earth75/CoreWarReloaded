@@ -9,6 +9,7 @@
 
 int main(int argc, char* argv[]) {
 
+
     SDL_Window *window;
     SDL_Renderer *renderer;
     SDL_Surface *fondSurface = NULL;
@@ -21,8 +22,19 @@ int main(int argc, char* argv[]) {
     SDL_Texture *textTexture;
 
     SDL_Rect TextLocation;
+
+
+
     Instruction Core[CORESIZE];
+    Instruction Core2[CORESIZE];
     initMARS(&Core, CORESIZE);
+    savefile(&Core, CORESIZE, "MARS.cr");
+    loadfile(&Core2, "MARS.cr");
+    savefile(&Core2, CORESIZE, "MARS2.cr");
+
+
+
+
 
     SDL_Init(SDL_INIT_VIDEO);
 

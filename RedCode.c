@@ -2,13 +2,8 @@
 
 
 
-void initMARS(Instruction (*Core)[], int size){
+void initMARS(Instruction (*Core)[], int size){ /*creates a blank memory of CORESIZE instructions*/
     int i;
-    char data[6];
-    FILE* file;
-    file = fopen("coretest2.cr" , "w");
-    if (file == NULL) printf ("fopen failed");
-    fprintf(file, "%d\n", size);
     for (i = 0; i < size; i++){
         (*Core)[i].opcode = DAT;
         (*Core)[i].mod = F;
@@ -16,39 +11,46 @@ void initMARS(Instruction (*Core)[], int size){
         (*Core)[i].A = 0;
         (*Core)[i].aB = dol;
         (*Core)[i].B = 0;
-        fprintf(file, "%d %d %d %d %d %d\n",(*Core)[i].opcode, (*Core)[i].mod, (*Core)[i].aA, (*Core)[i].A, (*Core)[i].aB, (*Core)[i].B);
     }
-    rewind (file);
-    fscanf (file, "%s", data);
-    printf ("filesize : %d", data);
-    fclose (file);
 }
 
-
-
-/*    printf("sizemem(coretest2.cr) : %d instructions", sizemem("coretest2.cr")); */
-
-
-void savefile(Instruction (*doc)[], int len, char* filename){
+void savefile(Instruction (*doc)[], int len, char* filename){ /*saves an array of instructions to a file*/
     int i = 0;
     FILE* file;
-    file = fopen(filename , "w");
+    file = fopen(filename, "w");
     if (file == NULL) printf ("fopen failed");
-    printf("savinit ");
     fprintf(file, "%d ", len);
-    for (i = 0; i < len; i++){fprintf(file, "%d %d %d %d %d %d ",(*doc)[i].opcode, (*doc)[i].mod, (*doc)[i].aA, (*doc)[i].A, (*doc)[i].aB, (*doc)[i].B);}
+    for (i = 0; i < len; i++){
+            fprintf(file, "%d %d %d %d %d %d ",(*doc)[i].opcode, (*doc)[i].mod, (*doc)[i].aA, (*doc)[i].A, (*doc)[i].aB, (*doc)[i].B);
+    }
     fclose (file);
-    printf("oksave ");
-
 }
 
-int sizemem(char *filename){
+void loadfile(Instruction (*doc)[], char* filename){ /*loads an array of instructions from a file*/
+    int i = 0;
+    int len;
+    FILE* file;
+    file = fopen(filename, "r");
+    if (file == NULL) printf ("fopen failed");
+    fscanf(file, "%d ", &len);
+    for (i = 0; i < len; i++){
+            fscanf(file, "%d", &((*doc)[i].opcode));
+            fscanf(file, "%d", &((*doc)[i].mod));
+            fscanf(file, "%d", &((*doc)[i].aA));
+            fscanf(file, "%d", &((*doc)[i].A));
+            fscanf(file, "%d", &((*doc)[i].aB));
+            fscanf(file, "%d", &((*doc)[i].B));
+    }
+    printf("copied %d inst.", len);
+    fclose (file);
+}
+
+int sizemem(char *filename){ /*returns the numbers of instructions a file holds*/
     FILE* file;
     int data = 0;
-    file = fopen(filename, "w");
+    file = fopen(filename, "r");
     if(file == NULL) {printf ("couldnt open file(sizemem)"); return 0;}
     fscanf(file, "%d", &data);
-    printf("%d ", data);
     fclose(file);
     return data;
 }

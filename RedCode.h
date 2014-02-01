@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define CORESIZE 40
+#define CORESIZE 10
 
 
 /*Setting the RedCode paradigm*/
@@ -11,3 +11,5 @@ typedef struct { Opcode opcode; Modifier mod; AddrMode aA; int A; AddrMode aB; i
 
 void initMARS();
 void savefile(Instruction (*doc)[], int len, char* filename);
+void loadfile(Instruction (*doc)[], char* filename);
+int sizemem(char *filename);
