@@ -4,26 +4,30 @@
 
 void initMARS(Instruction (*Core)[], int size){
     int i;
-    printf("okMARS ");
+    char data[6];
     FILE* file;
     file = fopen("coretest2.cr" , "w");
     if (file == NULL) printf ("fopen failed");
-    printf("savinit ");
-    fprintf(file, "%d ", size);
+    fprintf(file, "%d\n", size);
     for (i = 0; i < size; i++){
         (*Core)[i].opcode = DAT;
         (*Core)[i].mod = F;
         (*Core)[i].aA = dol;
-        (*Core)[i].A = 1;
+        (*Core)[i].A = 0;
         (*Core)[i].aB = dol;
-        (*Core)[i].B = 2;
-        fprintf(file, "%d %d %d %d %d %d ",(*Core)[i].opcode, (*Core)[i].mod, (*Core)[i].aA, (*Core)[i].A, (*Core)[i].aB, (*Core)[i].B);
+        (*Core)[i].B = 0;
+        fprintf(file, "%d %d %d %d %d %d\n",(*Core)[i].opcode, (*Core)[i].mod, (*Core)[i].aA, (*Core)[i].A, (*Core)[i].aB, (*Core)[i].B);
     }
-    printf("okMARS2 ");
+    rewind (file);
+    fscanf (file, "%s", data);
+    printf ("filesize : %d", data);
     fclose (file);
-    printf("oksave ");
-    printf("sizemem(coretest2.cr) : %d instructions", sizemem("coretest2.cr"));
 }
+
+
+
+/*    printf("sizemem(coretest2.cr) : %d instructions", sizemem("coretest2.cr")); */
+
 
 void savefile(Instruction (*doc)[], int len, char* filename){
     int i = 0;

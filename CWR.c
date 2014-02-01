@@ -21,16 +21,14 @@ int main(int argc, char* argv[]) {
     SDL_Texture *textTexture;
 
     SDL_Rect TextLocation;
-    printf("ok");
     Instruction Core[CORESIZE];
-    printf("ok");
     initMARS(&Core, CORESIZE);
 
     SDL_Init(SDL_INIT_VIDEO);
 
     TTF_Init();
-    char* text = malloc(17 * sizeof(char));
-    strcpy(text, "CoreWarsReloaded");
+    char* text = malloc(16 * sizeof(char));
+    strcpy(text, "CoreWarReloaded");
 
     window = SDL_CreateWindow(
         "CoreWarReloaded",
@@ -38,7 +36,7 @@ int main(int argc, char* argv[]) {
         SDL_WINDOWPOS_UNDEFINED,
         MAINWIN_WIDTH,
         MAINWIN_HEIGHT,
-        SDL_WINDOW_BORDERLESS
+        0
     );
 
 

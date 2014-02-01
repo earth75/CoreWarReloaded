@@ -5,7 +5,7 @@
 	<SDL_image.h>
 	<SDL_ttf.h>
 
-1391285887 source:c:\users\alexis\documents\projets c\corewarreloaded\cwr.c
+1391287107 source:c:\users\alexis\documents\projets c\corewarreloaded\cwr.c
 	"text.h"
 	"RedCode.h"
 
@@ -23,6 +23,6 @@
 1391285608 c:\users\alexis\documents\projets c\corewarreloaded\redcode.h
 	<stdio.h>
 
-1391286837 source:c:\users\alexis\documents\projets c\corewarreloaded\redcode.c
+1391287188 source:c:\users\alexis\documents\projets c\corewarreloaded\redcode.c
 	"RedCode.h"
 
